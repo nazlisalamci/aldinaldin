@@ -36,4 +36,9 @@ public class ProductController {
       return productServices.DeleteProduct(id);
    }
 
+   @PostMapping(path = "api/1.0/update-product")
+   public ResponseEntity<?> UpdateProduct(@RequestBody Map<String, Product> requestBody) throws Exception {
+      return productServices.UpdateProduct(requestBody.get("Product"));
+   }
+
 }

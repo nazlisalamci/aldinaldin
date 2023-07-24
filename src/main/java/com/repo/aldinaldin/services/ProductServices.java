@@ -11,8 +11,6 @@ import com.repo.aldinaldin.model.User;
 import com.repo.aldinaldin.repository.IProductRepository;
 import com.repo.aldinaldin.repository.IUserRepository;
 
-import javassist.bytecode.stackmap.BasicBlock.Catch;
-
 @Service
 public class ProductServices {
     @Autowired
@@ -44,14 +42,30 @@ public class ProductServices {
         }
 
     }
-    
-      public ResponseEntity<?> DeleteProduct(long id) {
-        Product product=iProductRepository.getOne(id);
+
+    public ResponseEntity<?> DeleteProduct(long id) {
+        Product product = iProductRepository.getOne(id);
         try {
             iProductRepository.delete(product);
             return ResponseEntity.status(200).build();
         } catch (Error err) {
             return ResponseEntity.status(404).build();
+        }
+
+    }
+
+    @Transactional
+    public ResponseEntity<?> UpdateProduct(Product product) {
+        Product updateProduct = iProductRepository.getOne(product.getId());
+        try {
+            updateProduct.setName(product.getName());
+            updateProduct.setDescription(product.getDescription());
+            updateProduct.setImage(product.getImage());
+            updateProduct.setPrice(product.getPrice());
+            iProductRepository.save(updateProduct);
+            return ResponseEntity.status(202).build();
+        } catch (Error err) {
+            return ResponseEntity.status(201).build();
         }
 
     }
