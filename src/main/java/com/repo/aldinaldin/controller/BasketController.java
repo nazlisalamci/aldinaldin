@@ -34,4 +34,8 @@ public class BasketController {
    public ResponseEntity<?> DeleteProduct(@PathVariable("Id") Long id) throws Exception {
       return basketServices.DeleteProduct(id);
    }
+    @GetMapping(path = "api/1.0/create-order/{Id}")
+   public ResponseEntity<?> CreateOrder(@PathVariable("Id") Long id) throws Exception {
+      return basketServices.CreateOrder(id);
+   }
 }
