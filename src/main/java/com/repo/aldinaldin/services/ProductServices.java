@@ -70,4 +70,14 @@ public class ProductServices {
 
     }
 
+    public ResponseEntity<?> GetAllProducts() {
+        try {
+            List<Product> products = iProductRepository.findAll();
+            return ResponseEntity.status(200).body(products);
+        } catch (Error err) {
+            return ResponseEntity.status(404).build();
+        }
+
+    }
+
 }

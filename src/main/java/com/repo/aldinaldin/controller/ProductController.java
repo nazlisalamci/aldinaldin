@@ -41,4 +41,9 @@ public class ProductController {
       return productServices.UpdateProduct(requestBody.get("Product"));
    }
 
+   @GetMapping(path = "api/1.0/get-all-product")
+   public ResponseEntity<?> UpdateProduct() throws Exception {
+      return productServices.GetAllProducts();
+   }
+
 }
