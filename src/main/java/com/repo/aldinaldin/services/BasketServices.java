@@ -79,7 +79,7 @@ public class BasketServices {
 
             double orderInvoice = 0;
             Order order = Order.builder()
-                    .orderStatus("Hazırlanıyor")
+                    .orderStatus(1)
                     .lastUpdatedDate(LocalDate.now())
                     .user(getUser)
                     .creationDate(LocalDate.now())

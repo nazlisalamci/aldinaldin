@@ -32,8 +32,11 @@ public class Order {
 
     private double invoice;
 
-    private String orderStatus;
-
+    private double orderStatus;
+//1 => hazırlanıyor
+//2=>yolda
+//3=>bitti
+//4=>iptal edildi
     private LocalDate lastUpdatedDate;
 
     @ManyToOne

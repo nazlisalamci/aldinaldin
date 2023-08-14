@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AldinaldinApplication {
 
 	public static void main(String[] args) {
